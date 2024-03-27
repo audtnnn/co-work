@@ -96,8 +96,10 @@
                   color: #fff;
                   .option {
                     margin-right: 20px;
- 
-                  }
+                      input {
+                          margin-right: 5px;
+                        }
+                      }
                 }
             }
             button {
