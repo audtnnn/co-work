@@ -23,7 +23,9 @@
                 <div class="member__info" v-for="(item, index) in activeTravel.travelInfo" :key="index">
                     <a :href="item.link">
                         <figure class="member__photo">
-                            <img :src="item.travelImg" :alt="item.title">
+                            <router-link to="/main">
+                                <img :src="item.travelImg" :alt="item.title">
+                            </router-link>
                         </figure>
                         <div class="member__desc">
                             <h4>{{ item.title }}</h4>
