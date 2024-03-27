@@ -4,9 +4,9 @@
         <div class="slide__inner">
             <swiper class="swiper" :options="swiperOption">
                 <swiper-slide v-for="(slider, index) in sliders" :key="index">
-                    <img 
-                    :src="slider.currentImage" 
-                    :alt="slider.alt" >
+                    <router-link to="/main">
+                        <img :src="slider.currentImage" :alt="slider.alt" >
+                    </router-link>
                     <div class="slide-text">
                         <p>{{  slider.title }}</p>
                     </div>
