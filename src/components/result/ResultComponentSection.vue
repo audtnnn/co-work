@@ -40,10 +40,10 @@
         <h5>나를 위한 근사한 휴가, 여기어때 프리미엄 숙소</h5>
         <li>
             <div class="pick__photo">
-                <a href="#"><img src="/image/pick_01.jpg" alt=""></a>
-                <a href="#"><img src="/image/pick_02.jpg" alt=""></a>
-                <a href="#"><img src="/image/pick_03.jpg" alt=""></a>
-                <a href="#"><img src="/image/pick_04.jpg" alt=""></a>
+                <a href="#"><img src="/src/assets/image/pick_01.jpg" alt=""></a>
+                <a href="#"><img src="/src/assets/image/pick_02.jpg" alt=""></a>
+                <a href="#"><img src="/src/assets/image/pick_03.jpg" alt=""></a>
+                <a href="#"><img src="/src/assets/image/pick_04.jpg" alt=""></a>
             </div>
         </li>
     </section>
