@@ -60,7 +60,7 @@
                       title:"인기 호텔 최대 5만원 할인",
                       date:"24.03.01 - 24.03.31",
                       photo: "src/assets/image/event_05.webp",
-                      img: "src/image/event_05.webp"
+                      img: "src/assets/image/event_05.webp"
                   },
                   {
                       title:"반려견과 블랙어때",
@@ -72,7 +72,7 @@
                       title:"인기 펜션 최대 5만원 할인",
                       date:"24.03.01 - 24.03.31",
                       photo: "src/assets/image/event_07.webp",
-                      img: "src/image/event_07.webp"
+                      img: "src/assets/image/event_07.webp"
                   },
                   {
                       title:"인기공간 할인파티",
