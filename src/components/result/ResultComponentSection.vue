@@ -321,6 +321,7 @@
                 display:flex;
                 justify-content:center; 
                 button { 
+                    font-family: "Noto Sans KR", sans-serif;
                     width: 80px;
                     font-size: 15px;
                     margin:0 15px 10px 0;
