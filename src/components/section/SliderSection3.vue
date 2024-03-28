@@ -4,8 +4,9 @@
         <div class="slide__inner">
             <swiper class="swiper" :options="swiperOption">
                 <swiper-slide v-for="(slider, index) in sliders" :key="index">
-                    <img :src="slider.image" :alt="slider.alt">
-                    <!-- <router-link :to="slider.href" class="detail"></router-link> -->
+                    <router-link to="event">
+                        <img :src="slider.image" :alt="slider.alt">
+                    </router-link>
                 </swiper-slide>
                 <div class="swiper-pagination" slot="pagination"></div>
             </swiper>

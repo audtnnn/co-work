@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <event-section />
+        <event-section :eventAni="eventAni" />
     </div>
 </template>
 
@@ -10,7 +10,17 @@
         name: "EventView",
         components:{
             EventSection,
-        }
+        },
+        data(){
+            return {
+                eventAni : false
+            }
+        },
+        mounted(){
+            setTimeout(()=>{
+                this.eventAni = true
+            }, 0)
+        },
     }
 </script>
 

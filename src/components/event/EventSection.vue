@@ -4,8 +4,8 @@
         <p>#HOT &nbsp;&nbsp;#모텔 &nbsp;&nbsp;#호텔 &nbsp;&nbsp;#리조트 &nbsp;&nbsp;#펜션 &nbsp;&nbsp;#캠핑 &nbsp;&nbsp;#게스트하우스 &nbsp;&nbsp;#해외여행</p>
       <div class="event__list">
               <ul>
-                  <li v-for="(item, index) in events" :key="index"  @click="showEventImage(item)">
-                          <div>
+                  <li v-for="(item, index) in events" :key="index" @click="showEventImage(item)" :class="{on:eventAni}">
+                          <div class="imgbox">
                               <img :src="item.photo" :alt="item.title">
                               <span class="name">{{ item.title }}</span>
                               <span>{{ item.date }}</span>
@@ -13,15 +13,17 @@
                   </li>
               </ul>
       </div>
-      <div v-if="selectedEvent" class="modal">
-      <div class="modal-content">
-        <span class="close" @click="closeModal">&times;</span>
-        <h2>{{ selectedEvent.title }}</h2>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;이벤트 자세히보기 → </p>
-        <img :src="selectedEvent.img" :alt="selectedEvent.title" class="modal-image">
+      
+      <transition name="fade"> 
+      <div v-if="selectedEvent"  class="modal">
+        <div class="modal-content">
+          <span class="close" @click="closeModal">&times;</span>
+          <h2>{{ selectedEvent.title }}</h2>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;이벤트 자세히보기 → </p>
+          <img :src="selectedEvent.img" :alt="selectedEvent.title" class="modal-image">
+        </div>
       </div>
-    </div>
-    
+    </transition>
   </section>
 </template>
 
@@ -29,6 +31,7 @@
 
   export default {
       name: "EventSection",
+      props : ["eventAni"],
       data(){
           return {
               events : [
@@ -60,7 +63,7 @@
                       title:"인기 호텔 최대 5만원 할인",
                       date:"24.03.01 - 24.03.31",
                       photo: "src/assets/image/event_05.webp",
-                      img: "src/image/event_05.webp"
+                      img: "src/assets/image/event_05.webp"
                   },
                   {
                       title:"반려견과 블랙어때",
@@ -72,7 +75,7 @@
                       title:"인기 펜션 최대 5만원 할인",
                       date:"24.03.01 - 24.03.31",
                       photo: "src/assets/image/event_07.webp",
-                      img: "src/image/event_07.webp"
+                      img: "src/assets/image/event_07.webp"
                   },
                   {
                       title:"인기공간 할인파티",
@@ -93,7 +96,7 @@
                       img: "src/assets/image/e_08.png"
                   },
               ],
-              selectedEvent: null           
+              selectedEvent: null      
           };
       },
       methods: {
@@ -131,18 +134,22 @@
     ul {
       display: flex;
       flex-wrap: wrap;
-
       li {
         flex: 0 0 30%;
         margin: 40px 20px 10px;
+        transform:scale(0.5); opacity:1; transition:all 0.5s;
+        @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                        &.on { transform:scale(1); opacity:1;
+                            transition-delay: 0.1s * ($i - 1);
+                        }
+                    }
+                }
 
-        div {
+        .imgbox {
           cursor: pointer;
-
-          img {
-            width: 100%;
-            border-radius: 15px;
-          }
+          overflow:hidden;
+          img { transition:all 0.5s; border-radius: 15px; width: 100%; }
 
           span {
             display: block;
@@ -158,6 +165,16 @@
       }
     }
   }
+  .fade-leave-from {
+    opacity:1;
+  }
+  
+.fade-leave-active {
+  transition: 0.5s ;
+}
+.fade-leave-to {
+  opacity: 0;
+}
   .modal {
     display: block; 
     position: fixed;
@@ -168,7 +185,23 @@
     height: 100%;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.4); 
+
   }
+//     /* 모달 페이드 */
+// .fade-enter-from {
+//   /* 시작시 효과 */
+//   opacity: 0;
+// }
+
+// .fade-enter-active {
+//   /* 전체 단계에서 적용될 부분*/
+//   transition: all 1s;
+// }
+
+// .fade-enter-to {
+//   /* 끝나는 효과 */
+//   opacity: 1;
+// }
   .modal-content {
     left: 0;
     top: -20%;
@@ -204,5 +237,6 @@
   height: auto;
 }
 }
+
   
 </style>

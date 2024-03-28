@@ -1,14 +1,14 @@
 <template>
-    <section id="sliderSection1" class="row">
+    <section id="sliderSection1" :class="{row:true, on:slideAni}">
         <h3 class="slide__title">국내 인기 여행지</h3>
         <div class="slide__inner">
             <swiper class="swiper" :options="swiperOption">
                 <swiper-slide v-for="(slider, index) in sliders" :key="index">
-                    <img 
-                    :src="slider.currentImage" 
-                    :alt="slider.alt" >
+                    <router-link to="/main">
+                        <img :src="slider.currentImage" :alt="slider.alt" >
+                    </router-link>
                     <div class="slide-text">
-                        <p>{{  slider.title }}</p>
+                        <p>{{ slider.title }}</p>
                     </div>
                 </swiper-slide>
                 <div class="swiper-button-prev" slot="button-prev"></div>
@@ -28,6 +28,7 @@
             Swiper,
             SwiperSlide
         },
+        props : ["slideAni"],
         data(){
             return {
                 sliders : [
@@ -58,8 +59,9 @@
 </script>
 
 <style lang="scss" scoped>
-    #sliderSection1 { margin:100px auto; font-family: "Noto Sans KR", sans-serif;
-        .slide__title { text-align: center; margin: 20px 0;}
+    #sliderSection1 { margin:100px auto; font-family: "Noto Sans KR", sans-serif; transform:translateY(100%); transition:all 0.5s;
+    &.on { transform:translateY(0%) }
+    .slide__title { text-align: center; margin: 20px 0;}
         .slide__inner {
             padding:0 50px; overflow:hidden;
             .swiper {

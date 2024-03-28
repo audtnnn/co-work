@@ -23,7 +23,9 @@
                 <div class="member__info" v-for="(item, index) in activeTravel.travelInfo" :key="index">
                     <a :href="item.link">
                         <figure class="member__photo">
-                            <img :src="item.travelImg" :alt="item.title">
+                            <router-link to="/main">
+                                <img :src="item.travelImg" :alt="item.title">
+                            </router-link>
                         </figure>
                         <div class="member__desc">
                             <h4>{{ item.title }}</h4>
@@ -40,10 +42,10 @@
         <h5>나를 위한 근사한 휴가, 여기어때 프리미엄 숙소</h5>
         <li>
             <div class="pick__photo">
-                <a href="#"><img src="/image/pick_01.jpg" alt=""></a>
-                <a href="#"><img src="/image/pick_02.jpg" alt=""></a>
-                <a href="#"><img src="/image/pick_03.jpg" alt=""></a>
-                <a href="#"><img src="/image/pick_04.jpg" alt=""></a>
+                <a href="#"><img src="/src/assets/image/pick_01.jpg" alt=""></a>
+                <a href="#"><img src="/src/assets/image/pick_02.jpg" alt=""></a>
+                <a href="#"><img src="/src/assets/image/pick_03.jpg" alt=""></a>
+                <a href="#"><img src="/src/assets/image/pick_04.jpg" alt=""></a>
             </div>
         </li>
     </section>
@@ -321,6 +323,7 @@
                 display:flex;
                 justify-content:center; 
                 button { 
+                    font-family: "Noto Sans KR", sans-serif;
                     width: 80px;
                     font-size: 15px;
                     margin:0 15px 10px 0;

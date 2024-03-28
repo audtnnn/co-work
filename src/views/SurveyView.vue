@@ -1,8 +1,8 @@
 <template>
     <div class="row">
         <survey-section />
-        <slider-section1 />
-        <slider-section2 />
+        <slider-section1 :slideAni="slideAni" />
+        <slider-section2 :slideAni2="slideAni2"/>
         <slider-section3 />
         
     </div>
@@ -21,6 +21,30 @@ import SliderSection3 from '@/components/section/SliderSection3.vue';
             SliderSection2,
             SliderSection3,
            
+        },
+        data(){
+            return {
+                slideAni : false,
+                slideAni2 : false
+            }
+        },
+        mounted(){
+            document.addEventListener("scroll", this.handleScroll)
+        }, 
+        methods : {
+            handleScroll(){
+                console.log(window.scrollY)
+                if (window.scrollY>300){
+                    this.slideAni = true
+                } else {
+                    this.slideAni = false
+                }
+                if (window.scrollY>700) {
+                    this.slideAni2 = true
+                } else {
+                    this.slideAni2 = false
+                }
+            }
         }
     }
 </script>

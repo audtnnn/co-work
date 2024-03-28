@@ -1,5 +1,5 @@
 <template>
-    <section id="surveySection">
+    <section id="surveySection" :class="{on:eventAni}">
       <h1>취향을 통해 나의 여행지를 찾아보세요!</h1>
       <form @submit.prevent="submitSurvey">
         <div v-for="(question, index) in questions" :key="index" class="question">
@@ -24,6 +24,7 @@
   export default {
     data() {
       return {
+        eventAni : false,
         questions: [
           {
             questionText: "여행을 계획할때 주로 어떤 종류의 여행을 선호하시나요?",
@@ -50,6 +51,11 @@
         responses: []
       };
     },
+    mounted(){
+            setTimeout(()=>{
+                this.eventAni = true
+            }, 0)
+        },
     methods: {
       submitSurvey() {
         console.log("응답:", this.responses);
@@ -67,6 +73,9 @@
         text-align: center;
         position: relative;
         background: rgb(223, 62, 62);
+        transform:scale(0.5); opacity:1; transition:all 0.5s;
+        &.on { transform:scale(1); opacity:1
+        }
         h1 {
           font-size: 40px;
           font-weight: 100;
@@ -96,7 +105,9 @@
                   color: #fff;
                   .option {
                     margin-right: 20px;
- 
+                    input {
+                      margin-right: 5px;
+                    }
                   }
                 }
             }
