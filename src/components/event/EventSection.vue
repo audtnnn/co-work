@@ -4,8 +4,8 @@
         <p>#HOT &nbsp;&nbsp;#모텔 &nbsp;&nbsp;#호텔 &nbsp;&nbsp;#리조트 &nbsp;&nbsp;#펜션 &nbsp;&nbsp;#캠핑 &nbsp;&nbsp;#게스트하우스 &nbsp;&nbsp;#해외여행</p>
       <div class="event__list">
               <ul>
-                  <li v-for="(item, index) in events" :key="index"  @click="showEventImage(item)" :class="{on:eventAni}">
-                          <div>
+                  <li v-for="(item, index) in events" :key="index" @click="showEventImage(item)" :class="{on:eventAni}">
+                          <div class="imgbox">
                               <img :src="item.photo" :alt="item.title">
                               <span class="name">{{ item.title }}</span>
                               <span>{{ item.date }}</span>
@@ -13,15 +13,17 @@
                   </li>
               </ul>
       </div>
-      <div v-if="selectedEvent" class="modal">
-      <div class="modal-content">
-        <span class="close" @click="closeModal">&times;</span>
-        <h2>{{ selectedEvent.title }}</h2>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;이벤트 자세히보기 → </p>
-        <img :src="selectedEvent.img" :alt="selectedEvent.title" class="modal-image">
+      
+      <transition name="fade"> 
+      <div v-if="selectedEvent"  class="modal">
+        <div class="modal-content">
+          <span class="close" @click="closeModal">&times;</span>
+          <h2>{{ selectedEvent.title }}</h2>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;이벤트 자세히보기 → </p>
+          <img :src="selectedEvent.img" :alt="selectedEvent.title" class="modal-image">
+        </div>
       </div>
-    </div>
-    
+    </transition>
   </section>
 </template>
 
@@ -29,7 +31,7 @@
 
   export default {
       name: "EventSection",
-    props : ["eventAni"],
+      props : ["eventAni"],
       data(){
           return {
               events : [
@@ -94,7 +96,7 @@
                       img: "src/assets/image/e_08.png"
                   },
               ],
-              selectedEvent: null           
+              selectedEvent: null      
           };
       },
       methods: {
@@ -163,6 +165,16 @@
       }
     }
   }
+  .fade-leave-from {
+    opacity:1;
+  }
+  
+.fade-leave-active {
+  transition: 0.5s ;
+}
+.fade-leave-to {
+  opacity: 0;
+}
   .modal {
     display: block; 
     position: fixed;
@@ -173,7 +185,23 @@
     height: 100%;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.4); 
+
   }
+//     /* 모달 페이드 */
+// .fade-enter-from {
+//   /* 시작시 효과 */
+//   opacity: 0;
+// }
+
+// .fade-enter-active {
+//   /* 전체 단계에서 적용될 부분*/
+//   transition: all 1s;
+// }
+
+// .fade-enter-to {
+//   /* 끝나는 효과 */
+//   opacity: 1;
+// }
   .modal-content {
     left: 0;
     top: -20%;
@@ -209,5 +237,6 @@
   height: auto;
 }
 }
+
   
 </style>
