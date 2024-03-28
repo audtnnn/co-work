@@ -44,3 +44,7 @@ fieldset {
 legend {
     display: none;
 }
+@font-face {
+    font-family: 'YeogiEottae';
+    src: url('src/assets/fonts/Jalnan2TTF.ttf') format('truetype');
+}

@@ -6,6 +6,7 @@ import EventView from '@/views/EventView.vue'
 import CustomerView from '@/views/CustomerView.vue'
 import SurveyView from '@/views/SurveyView.vue'
 import ResultComponentView from '@/views/ResultComponentView.vue'
+import PracticeView from '@/views/PracticeView.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -17,6 +18,7 @@ const router = new Router({
         { path:"/customer", name:"customer", component:CustomerView},
         { path:"/survey", name:"survey", component:SurveyView},
         { path:"/result", name:"result", component:ResultComponentView},
+        { path:"/practice", name:"practice", component:PracticeView}
     ],
 })
 

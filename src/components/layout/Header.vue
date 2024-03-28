@@ -19,9 +19,9 @@
                 </div>
                 <ul v-show="menuOpen" class="menu__contents">
                     <li>
-                        <a href="#">
+                        <router-link to="/practice">
                             로그인/회원가입
-                        </a>
+                        </router-link>
                     </li>
                     <li>
                         <a href="#">
