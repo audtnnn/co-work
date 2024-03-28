@@ -4,7 +4,7 @@
         <p>#HOT &nbsp;&nbsp;#모텔 &nbsp;&nbsp;#호텔 &nbsp;&nbsp;#리조트 &nbsp;&nbsp;#펜션 &nbsp;&nbsp;#캠핑 &nbsp;&nbsp;#게스트하우스 &nbsp;&nbsp;#해외여행</p>
       <div class="event__list">
               <ul>
-                  <li v-for="(item, index) in events" :key="index"  @click="showEventImage(item)">
+                  <li v-for="(item, index) in events" :key="index"  @click="showEventImage(item)" :class="{on:eventAni}">
                           <div>
                               <img :src="item.photo" :alt="item.title">
                               <span class="name">{{ item.title }}</span>
@@ -29,6 +29,7 @@
 
   export default {
       name: "EventSection",
+    props : ["eventAni"],
       data(){
           return {
               events : [
@@ -131,18 +132,22 @@
     ul {
       display: flex;
       flex-wrap: wrap;
-
       li {
         flex: 0 0 30%;
         margin: 40px 20px 10px;
+        transform:scale(0.5); opacity:1; transition:all 0.5s;
+        @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                        &.on { transform:scale(1); opacity:1;
+                            transition-delay: 0.1s * ($i - 1);
+                        }
+                    }
+                }
 
-        div {
+        .imgbox {
           cursor: pointer;
-
-          img {
-            width: 100%;
-            border-radius: 15px;
-          }
+          overflow:hidden;
+          img { transition:all 0.5s; border-radius: 15px; width: 100%; }
 
           span {
             display: block;
