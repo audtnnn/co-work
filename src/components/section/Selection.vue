@@ -1,18 +1,23 @@
 <template>
     <section id="selection">
-          <ul class="gallery">
-        <li>
-          <div class="headline">
-            <h2 class="__title">여기</h2>
-            <router-link to="main" class="detail">숙소찾기</router-link>
+        <ul class="gallery">
+          <div class="main_logo">
+              여행할땐
           </div>
-        </li>
-        <li>
-          <div class="headline2">
-            <h2 class="__title">어때</h2>
-            <router-link to="survey" class="detail">추천받기</router-link>
-          </div>
-        </li>
+          <li>
+            <router-link to="main" class="detail">
+              <div class="headline">
+                <h2 class="__title">여기</h2>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="survey" class="detail">
+              <div class="headline2">
+                <h2 class="__title">어때</h2>
+              </div>
+            </router-link>
+          </li>
       </ul>
     </section>
 </template>
@@ -39,22 +44,40 @@ a {
   height: 90vh;
 }
 .gallery li {
-  border-right: 5px solid #fff;
   flex: 1;
   transition: 0.5s;
   position: relative;
 }
+.main_logo {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: 
+  
+}
+.headline {
+  position: absolute;
+  top: 40%;
+  left: 80%;
+}
+.headline2 {
+  position: absolute;
+  top: 40%;
+  right: 80%;
+
+}
+
 .__title {
   font-family: "YeogiEottae", sans-serif;
   color: rgb(209, 42, 42);
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 300;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: center;
 }
 .detail {
+  display: block;
+}
+/* .detail {
   font-family: "Noto Sans KR", sans-serif;
    width:150px;
    height:50px;
@@ -65,25 +88,21 @@ a {
    font-size:15px; 
    text-align:center;
    line-height:50px; 
-   position:absolute;
-   top: 55%;
-   left:50%;
-   transform:translateX(-50%); 
-}
-.detail:hover {
+} */
+/* .detail:hover {
   background:#fff;
   color: #000;
-}
+} */
 .gallery li:last-child {
 border-right: none;
 }
 .gallery li:nth-child(1) {
-  background: url(/src/assets/image/1.jpg)no-repeat center center;
-  background-size: 1400px auto;
+  background: url(/src/assets/image/test1.jpg)no-repeat left;
+  background-size: 1905px;
 }
 .gallery li:nth-child(2) {
-  background: url(/src/assets/image/2.jpg)no-repeat center center;
-  background-size: 1400px auto;
+  background: url(/src/assets/image/test1.jpg)no-repeat right;
+  background-size: 1905px;
 }
 .gallery:hover li {
   flex: 1;
@@ -92,6 +111,7 @@ border-right: none;
 .gallery li:hover {
 flex: 3;
 filter: grayscale(0);
+z-index: 9999;
 }
 .headline .headline2 {
   position: absolute;

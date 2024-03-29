@@ -2,7 +2,7 @@
     <div class="bg">
         <div class="wrap">
             <div class="phone">
-                <img src="@/assets/image/phone.png" alt="">
+                <img src="@/assets/image/phone1.png" alt="" :class="{ 'hereOn': ishere }">
             </div>
             <div class="unload_screen">
                 <div class="question" :class="{ 'hereOn': ishere }">
@@ -16,7 +16,9 @@
                     <div class="screen_image" :class="{ 'hereOn': ishere }">
                         <img src="@/assets/image/여기어때.png" :class="{ 'hereOn': ishere }" alt="">
                     </div>
-                    <div class="loader" :class="{ 'animate': animated }"></div>
+                    <div class="loader" :class="{ 'animate': animated }">
+                        <img :src="detail_image" alt="">
+                    </div>
                     <div class="detail_data" :class="{ 'hereOn': ishere }">{{detail_Data}}</div>
                     <div class="buttons" :class="{ 'hereOn': ishere }">
                         <button>전화상담</button>
@@ -75,7 +77,8 @@
                 ishere: false,
                 load: false,
                 detail_Data: "",
-                animated: false
+                animated: false,
+                detail_image: ""
             }
         },
         methods: {
@@ -87,7 +90,13 @@
                 item.ishere = !item.ishere
                 this.ishere = true
                 this.detail_Data = item.detail
-                this.animated = true
+                this.detail_image = item.image
+                setTimeout(() => {
+                    this.animated = true;
+                }, 0);
+                // setTimeout(() => {
+                //     this.animated = false;
+                // }, 5000);
             },
         },
     }
@@ -95,11 +104,19 @@
 
 <style lang="scss" scoped>
     .bg{
-        //  background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5)), url("@/assets/image/forrest.jpg");
+        background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3)), url("@/assets/image/sunbg.jpg") bottom / cover;
+        height: 46vw;
         .wrap{
             position: relative;
             .phone{
                 text-align: center;
+                img {
+                    height: 800px;
+                    transition: all 0.8s 1.5s;
+                    &.hereOn {
+                        transform: scale(1.2);
+                    }
+                }
             }
             .unload_screen {
                 position: absolute;
@@ -119,7 +136,7 @@
                         opacity: 0;
                         }
                     p {
-                        font-size: 20px;
+                        font-size: 15px;
                         font-family: "YeogiEottae", sans-serif;
                         font-weight: 300;
                         color:#fff;
@@ -141,7 +158,7 @@
                     width: 100px;
                     height: 100px;
                     border-radius: 20px;
-                    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+                    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
                     transition-property: opacity, margin;
                     transition-duration: 0.2s, 0.2s;
                     transition-delay: 1s, 0.5s;
@@ -168,49 +185,52 @@
                     justify-content: center;
                     img{
                         opacity: 0;
-                        width: 300px;
+                        width: 250px;
                         transition-property: width, opacity, margin;
                         transition-duration: 0.2s, 0.2s, 0.2s; /* 각 속성에 대한 전환 시간 */
-                        transition-delay: 2s, 1.8s, 2.5s;/* 각 속성에 대한 딜레이 */
+                        transition-delay: 3.2s, 2.7s, 3.5s;/* 각 속성에 대한 딜레이 */
                         &.hereOn {
                         opacity: 1;
-                        width: 200px;
+                        width: 150px;
                         margin-bottom: 100px;
                         }
                     }
                 }
                 .loader {
-                    width: 50px;
-                    height: 50px;
+                    width: 70px;
+                    height: 70px;
                     margin: 0 auto; /* 가운데 정렬 */
                     opacity: 0;
                     background-image: url('src/assets/image/marketing.png') center / cover;
-                    transition: all 0.5s 3s;
+                    transition: all 0.5s 3.8s;
                     &.animate {
                         opacity: 1;
-                        animation: changeIcon 3s linear infinite;
+                        animation: changeIcon 1s linear;
+                        animation-iteration-count: 5;
                     }
                 }
                 .detail_data {
                     opacity: 0;
-                    transition: all 0.5s 3.5s;
+                    transition: all 0.5s 5s;
                     font-size: 20px;
                     font-family: "YeogiEottae", sans-serif;
                     color:#f4313f;
                     text-align: center;
+                    width: 277.55px;
                     &.hereOn {
                     opacity: 1;
                     }
                 }
                 .buttons {
                     opacity: 0;
-                    transition: all 0.2s 3.5s;
+                    transition: all 0.2s 5s;
                     display: flex;
-                    justify-content: center;
+                    justify-content: space-between;
                     align-items: center;
-                    gap: 6px;
+                    gap: 10px;
                     button {
-                        font-size: 15px;
+                        flex: 1;
+                        font-size: 20px;
                         background: #f4313f;
                         color: #fff;
                         border-radius: 14px;
@@ -233,17 +253,17 @@
                 top: 60%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 1800px;
-                gap: 30px;
+                width: 1700px;
+                gap: 15px;
                 .here {
-                    width: 200px;
-                    height: 300px;
+                    width: 180px;
+                    height: 280px;
                     transition: all 0.6s;
                     transform-style: preserve-3d;
-                    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+                    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
                     perspective: 1000px;
                     position: relative;
-                    padding: 0 15px;
+                    padding: 0 5px;
                     font-weight: 600;
                     border-radius: 16px;
                     background: #FFEBEB;
@@ -253,7 +273,7 @@
                         height: 100%;
                         position: relative;
                         transform-style: preserve-3d;
-                        transition: transform 0.6s;
+                        transition: transform  margin 0.6s;
                         .front {
                             position: absolute;
                             width: 100%;
@@ -297,7 +317,7 @@
                                 gap: 20px;
                                 .card_name{
                                     font-size: 20px;
-                                    color: #333;
+                                    color: #f4313f;
                                     font-family: "YeogiEottae", sans-serif;
                                 }
                                 .card_detail{
@@ -329,7 +349,7 @@
                         opacity: 0;
                     }
                     &:nth-child(3){
-                        margin-right: 450px;
+                        margin-right: 400px;
                     }
                     &:nth-child(3).hereOn{
                         transform: translateX(75%) translateY(-20%);

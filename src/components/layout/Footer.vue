@@ -113,6 +113,7 @@
                         width: 142px;
                         height: 48px;
                         display: flex;
+                        gap: 6px;
                         justify-content: center;
                         align-items: center;
                         color: #333;
@@ -124,6 +125,7 @@
                         width: 142px;
                         height: 48px;
                         display: flex;
+                        gap: 6px;
                         justify-content: center;
                         align-items: center;
                         color: #333;
