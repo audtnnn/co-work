@@ -65,6 +65,7 @@
                     font-weight: 600;
                     letter-spacing: 0.2px;
                     font-size: 13px;
+                    transition: all 0.3s;
                     &.active {
                         color:#fff;
                         background: #1273e4
