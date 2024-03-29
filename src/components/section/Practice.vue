@@ -22,7 +22,7 @@
                     <div class="detail_data" :class="{ 'hereOn': ishere }">{{detail_Data}}</div>
                     <div class="buttons" :class="{ 'hereOn': ishere }">
                         <button>전화상담</button>
-                        <button>이메일 접수</button>
+                        <a href="https://accounts.google.com" target="_blank"><button>이메일 접수</button></a>
                     </div>
                 </li>
             </ul>
