@@ -20,12 +20,12 @@
                 <ul v-show="menuOpen" class="menu__contents">
                     <li>
                         <router-link to="/practice">
-                            로그인/회원가입
+                            사업제휴 / 입점문의
                         </router-link>
                     </li>
                     <li>
                         <a href="#">
-                        비회원 예약조회
+                            로그인 / 회원가입
                         </a>
                     </li>
                 </ul>
@@ -106,7 +106,8 @@
                     }
                 }
                 .menu__contents {
-                    width: 168px;
+                    align-content: center;
+                    width: 140px;
                     height: 88px;
                     display: block;
                     position: absolute;
