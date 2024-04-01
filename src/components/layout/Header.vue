@@ -22,13 +22,19 @@
                 </div>
                 <ul v-show="menuOpen" class="menu__contents">
                     <li>
+<<<<<<< HEAD
                         <a>
                             로그인/회원가입
                         </a>
+=======
+                        <router-link to="/practice">
+                            사업제휴 / 입점문의
+                        </router-link>
+>>>>>>> 21aa56f56c43f1607e42fa650d915f79c0180b2f
                     </li>
                     <li>
                         <a href="#">
-                        비회원 예약조회
+                            로그인 / 회원가입
                         </a>
                     </li>
                 </ul>
@@ -121,7 +127,8 @@
                     }
                 }
                 .menu__contents {
-                    width: 168px;
+                    align-content: center;
+                    width: 140px;
                     height: 88px;
                     display: block;
                     position: absolute;

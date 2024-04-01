@@ -21,8 +21,9 @@
                     </div>
                     <div class="detail_data" :class="{ 'hereOn': ishere }">{{detail_Data}}</div>
                     <div class="buttons" :class="{ 'hereOn': ishere }">
-                        <button>전화상담</button>
-                        <button>이메일 접수</button>
+                        <button @click="showNumber">전화상담</button>
+                        
+                        <a href="https://accounts.google.com" target="_blank"><button>이메일 접수</button></a>
                     </div>
                 </li>
             </ul>
@@ -94,10 +95,10 @@
                 setTimeout(() => {
                     this.animated = true;
                 }, 0);
-                // setTimeout(() => {
-                //     this.animated = false;
-                // }, 5000);
             },
+            showNumber(){
+                alert('☎ 1670 6250')
+            }
         },
     }
 </script>
