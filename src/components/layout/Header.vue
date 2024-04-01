@@ -10,6 +10,9 @@
             <div class="customer">
                 <router-link to="/customer">고객센터</router-link>
             </div>
+            <div class="Store_entry">
+                <router-link to="/Practice">입점문의</router-link>
+            </div>
             <div @click="menuOnOff" class="menu">
                 <div class="bar">
                     <i class="fa-solid fa-bars"></i>
@@ -19,9 +22,9 @@
                 </div>
                 <ul v-show="menuOpen" class="menu__contents">
                     <li>
-                        <router-link to="/practice">
+                        <a>
                             로그인/회원가입
-                        </router-link>
+                        </a>
                     </li>
                     <li>
                         <a href="#">
@@ -64,7 +67,7 @@
             }
         }
         .header__nav {
-            width: 252.8px;
+            width: 270px;
             height: 40px;
             display: flex;
             justify-content: space-between;
@@ -72,10 +75,22 @@
             text-align: center;
             gap: 16px;
             .event{
-                flex:1;
+                font-weight: 500;
+                &:hover{
+                    color: rgba(112,112,112,1)
+                }
             }
             .customer{
-                flex:1;
+                font-weight: 500;
+                &:hover{
+                    color: rgba(112,112,112,1)
+                }
+            }
+            .Store_entry{
+                font-weight: 500;
+                &:hover{
+                    color: rgba(112,112,112,1)
+                }
             }
             .menu {
                 position: relative;
